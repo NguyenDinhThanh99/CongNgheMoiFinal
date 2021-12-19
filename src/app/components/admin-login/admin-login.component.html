@@ -1,0 +1,66 @@
+<!-- <div class="content">
+  <div class="wrapperStyle">
+
+    <p class="titleStyle">Management</p>
+
+    <div class="uidWrapperStyle">
+      <div>
+        <p class="subtitleStyle">Login continue with UID</p>
+      </div>
+      <div class="inputWrapperStyle">
+        <input class='example-input' type="email" placeholder="User" value=" " [(ngModel)]="log_email">
+      </div>
+      <div class="inputWrapperStyle">
+        <input class='example-input' type="password" placeholder="Password" [(ngModel)]="log_pw">
+      </div>
+      <div class="loginBtn">
+        <button mat-button class="example-btn" (click)="login()">Login</button>
+
+      </div>
+      <div style="margin-top: 30px;"> {{login_result}} </div>
+    </div>
+  </div>
+</div> -->
+<div class="content" style="display: flex;flex-direction: column;">
+  <h2 style="color: darkred;margin:50px auto;">User management</h2>
+  <form style="width: 30%;border: 1px solid blueviolet;margin: 20px auto; border-radius: 10px;display: flex;flex-direction: column;"  action="/dn" method="POST" [formGroup]="proAdd" (submit)="onSubmit()">
+    <div class="form-group" style="margin: 20px;">
+      <label for="email">Tên tài khoản</label>
+      <input type="text" formControlName="email" name="email" class="form-control"  #userEmail required>
+      <div *ngIf="submited && f.email.errors">
+        <small style="color: red;" *ngIf="f.email.errors.required">Tên tài khoản không để trống</small>
+      </div>
+    </div>
+    <div class="form-group" style="margin: 20px;">
+      <label for="password">Mật khẩu</label>
+      <input type="password" formControlName="password" name="password" class="form-control"  #userPassword required>
+      <div *ngIf="submited && f.password.errors">
+        <small style="color: red;" *ngIf="f.password.errors.required">Mật khẩu không để trống</small>
+      </div>
+    </div>
+    <div class="formGroup" style="margin: auto; margin-bottom: 20px;" >
+      <input style="background-color:#78A6C8; padding: 5px 20px;" type="submit" class="btn btnPrimary" value="Log in" >
+    </div>
+  </form>
+</div>
+
+
+<!-- <div class="authBlock">
+  <h3>Sign In</h3>
+  <div class="formGroup">
+    <input type="text" class="formControl" formControlName="email" placeholder="Username" #userName required>
+  </div>
+
+  <div class="formGroup">
+    <input type="password" class="formControl" formControlName="password" placeholder="Password" #userPassword required>
+  </div>
+
+  Calling SignIn Api from AuthService
+  <div class="formGroup">
+    <input type="button" class="btn btnPrimary" value="Log in" >
+    (click)="authService.SignIn(userName.value, userPassword.value)"
+  </div>
+
+</div> -->
+
+

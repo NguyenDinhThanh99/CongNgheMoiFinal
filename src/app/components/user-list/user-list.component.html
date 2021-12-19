@@ -1,0 +1,48 @@
+
+
+
+
+<div class="container mt-3">
+  <div style="display: flex;justify-content: space-between;">
+    <a href="/users">Quay lại?</a>
+  <a href="" (click)="authService.SignOut()">Đăng xuất</a>
+  </div>
+  <h1>Quản trị người dùng</h1>
+  <form action="" style="margin: 20px;" method="POST" [formGroup]="userForm" class="form-inline" (submit)="onSubmit()">
+    <a routerLink="/add" class="btn btn-success">Thêm người dùng</a>
+  </form>
+
+  <table class="table" >
+    <thead>
+      <th>Mã</th>
+      <th>Tên</th>
+      <th>Ngày sinh</th>
+      <th>Số điện thoại</th>
+      <th>Địa chỉ</th>
+      <th>Avatar</th>
+      <th>Tình trạng</th>
+      <th>Ngày tạo</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of users; let i =index" >
+          <td *ngIf="s.role == 'normal'">{{s.id_user}}</td>
+          <td *ngIf="s.role == 'normal'"><a>{{s.name}}</a></td>
+
+          <td *ngIf="s.role == 'normal'">{{s.birthday | date:"dd/MM/yyyy"}}</td>
+          <td *ngIf="s.role == 'normal'">{{s.phonenumber}}</td>
+          <td *ngIf="s.role == 'normal'">{{s.address}}</td>
+          <td *ngIf="s.role == 'normal'"><img style="width: 50px;height: 50px;" src="{{s.url_avatar}}" alt=""></td>
+          <td *ngIf="s.role == 'normal'">{{s.status}}</td>
+          <td *ngIf="s.role == 'normal'">{{s.create_date | date:"dd/MM/yyyy"}}</td>
+          <td *ngIf="s.role == 'normal'">
+            <a routerLink="/edit/{{s.id_user}}" class="btn btn-primary" (click)="onEdit(s.id_user)">Sửa</a>
+            <a href="javascript:void(0)" class="btn btn-danger" (click)="onDelete(s.id_user,s.name)">Xóa</a>
+          </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+

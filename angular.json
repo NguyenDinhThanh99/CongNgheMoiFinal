@@ -66,10 +66,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "port": 4500
+          },
           "configurations": {
             "production": {
               "browserTarget": "crud-user:build:production"
             },
+
             "development": {
               "browserTarget": "crud-user:build:development"
             }
