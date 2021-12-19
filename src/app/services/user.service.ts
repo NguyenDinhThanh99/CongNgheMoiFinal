@@ -17,17 +17,17 @@ export class UserService {
 
 
   getById(id: any):Observable<UserData>{
-    return this.http.get<UserData>('http://ec2-52-221-232-82.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id);
+    return this.http.get<UserData>('http://ec2-13-213-52-25.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id);
   }
   getList():Observable<UserData[]> {
-    return this.http.get<UserData[]>('http://ec2-52-221-232-82.ap-southeast-1.compute.amazonaws.com:3000/Users');
+    return this.http.get<UserData[]>('http://ec2-13-213-52-25.ap-southeast-1.compute.amazonaws.com:3000/Users');
   }
   delete(id: string,name:string): Observable<any>{
-    return this.http.delete('http://ec2-52-221-232-82.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id);
+    return this.http.delete('http://ec2-13-213-52-25.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id);
   }
 
   update(id: any, userObj: any){
-    return this.http.put('http://ec2-52-221-232-82.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id,userObj);
+    return this.http.put('http://ec2-13-213-52-25.ap-southeast-1.compute.amazonaws.com:3000/Users/'+id,userObj);
   }
 
   add(id_user:string,name:string,birthday:Date,phonenumber:string,address:string,url_avatar:string,status:string,create_date:Date):Observable<any>{
@@ -35,7 +35,7 @@ export class UserService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
       // const body=JSON.stringify();
     }
-    return this.http.post(`http://ec2-52-221-232-82.ap-southeast-1.compute.amazonaws.com:3000/Users?id_user=${id_user}&name=${name}&birthday=${birthday}&phonenumber=${phonenumber}&address=${address}&url_avatar=${url_avatar}&status=${status}&create_date=${create_date}`,httpOptions);
+    return this.http.post(`http://ec2-13-213-52-25.ap-southeast-1.compute.amazonaws.com:3000/Users?id_user=${id_user}&name=${name}&birthday=${birthday}&phonenumber=${phonenumber}&address=${address}&url_avatar=${url_avatar}&status=${status}&create_date=${create_date}`,httpOptions);
   }
 
 }
